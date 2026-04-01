@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> ANDYBAID'S HOUSE </title>
+    
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="ada-water.js"></script>
+</head>
+<body>
+        <a-scene acceleration="100">
+            <a-assets timeout="10000">
+                <img src="images/Sky Background-56.jpg" id="sky" alt="">
+                <img src="anotherFloor.jpeg" id="newFloor" alt="">  
+                <img src="images/darkgrass.jpg" id="grass" alt=""> 
+                <img src="grass2.jpg" id="grassFloor" alt=""> 
+                <img src="images/pexels-photo.jpeg" id="Layout" alt="">                   
+                <a-asset-item src="dream_house/scene.gltf" id="House"></a-asset-item>
+                <a-asset-item src="pool/scene.gltf" id="pool"></a-asset-item>
+                <a-asset-item src="external_rocking_chair_gltf/scene.gltf" id="rocking_chair"></a-asset-item>
+                <a-asset-item src="realistic_palm_tree_4_free/scene.gltf" id="Coconut"></a-asset-item>
+                <a-asset-item src="fence/scene.gltf" id="Fence"></a-asset-item>
+            </a-assets>
+
+
+            <!--MODULES-->
+
+            <!--THE HOUSE-->
+            <a-entity gltf-model="#House" scale="8 8 4.5" position="0 4 80" rotation="0 0 0"></a-entity>
+
+            <!--THE CAR-->
+            <a-entity gltf-model="#car" scale="8 8 4.5" position="50 0 100" rotation="0 0 0"></a-entity>
+            <!--Rocking chair-->
+            <a-entity gltf-model="#rocking_chair" scale="0.4 0.4 0.4"  position="-240 -4 -60" rotation="0 180 0"></a-entity>
+
+            <!--THE POOL-->
+            <a-entity gltf-model="#pool" scale="1 1 1" position="-190 -4 -60" rotation="0 0 0"></a-entity>
+            <!--THE COCONUT TREE-->
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="5 0 80" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="31 0 80" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="31 0 100" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="5 0 100" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="5 0 120" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="31 0 120" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="-25 0 80" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="-50 0 80" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="-75 0 80" rotation="0 0 0"></a-entity>
+            <a-entity gltf-model="#Coconut" scale="4 4 4" position="56 0 80" id="palm-tree"></a-entity>
+
+            <!--THE FENCE-->
+            <a-entity gltf-model="#Fence" scale="1 1 1" position="34 1 80" id="Fence"></a-entity>
+            <a-entity gltf-model="#Fence" scale="1 1 1" position="-20 1 80" id="Fence"></a-entity>
+            <a-entity gltf-model="#Fence" scale="1 1 1" position="-47 1 80" id="Fence"></a-entity>
+            <a-entity gltf-model="#Fence" scale="1 1 1" position="-72 1 80" id="Fence"></a-entity>
+
+
+
+
+            <!--THE LIGHTING-->
+
+            <a-entity light="type: ambient; color: white; intensity: 0.7;" position="0 20 0"></a-entity>
+
+            <!--THE LIGHT FOR FIRST FLOOR-->
+            <a-entity light="type:spot; color:#ff9d0a; angle:95; penumbra:0.29;intensity: 3; groundcolor:#ffffff;shadowRadius:1.01" rotation="90 -174 -7.3310000000000001" position="0 10 -10"></a-entity>
+
+            <!--THE LIGHT FOR THE GROUND FLOOR-->
+            <a-entity light="type:spot; color:#ff8d0a; angle:95; penumbra:0.29;intensity: 2; groundcolor:#ffffff;shadowRadius:1.01" rotation="-90 -174 -7.331000000000001" position="0 10 -10" ></a-entity>
+
+
+               <!--SETTING THE CAMERA POSITION-->
+            <a-entity position="10 40 170" >
+                <a-camera user height="5"
+                    active="true">
+                </a-camera>
+            </a-entity>
+
+
+                
+                <!--THE SKY-->
+            <a-sky src="#sky"></a-sky>
+          
+            
+            <a-plane
+            src="#grass"
+            rotation="-90 0 0"
+            scale="700 700 700"
+            repeat="600 600"
+            roughness="4">
+          </a-plane>
+            
+
+            <a-water
+            opacity="40"
+            side="double"
+            width="20"
+            height="90"
+            base-color="skyblue"
+            foam-color="blue"
+            repeat="20"
+            voronoi-points="10"
+            rotation="90 0 0"
+            position="-190 0.40 -60 "
+            scale="1.5 4.5 5"
+           ></a-water>
+           
+            <!--PAVEMENT-->
+            <a-box
+            depth="15"
+            width="20"
+            height="0.5"
+            position="18 0 80"
+            src="#Layout"
+            material="repeat:3 5;"
+            roughness="5" >
+            </a-box>
+
+            <a-box
+            depth="15"
+            width="20"
+            height="0.5"
+            position="18 0 100"
+            src="#Layout"
+            material="repeat:3 5;"
+            roughness="5" >
+            </a-box>
+            <a-box
+            depth="15"
+            width="20"
+            height="0.5"
+            position="18 0 120"
+            src="#Layout"
+            material="repeat:3 5;"
+            roughness="5" >
+            </a-box>
+
+                
+            
+           <script>
+            document.querySelector("a-water").setAttribute("animation", {
+              property: "scale",
+              // from: "10 2 1",
+              // to: "2 15 2",
+              dur: 20000,
+              loop: true,
+              dir: "alternate",
+              easing: "easeOutElastic",
+            });
+          </script>
+        </a-scene>
+    </body>
+</html>
